@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"errors"
+	"fmt"
 
 	domain "github/instaShop_assessment/features/domain"
 	repo "github/instaShop_assessment/features/domain/repository"
@@ -20,25 +21,42 @@ func NewOrderUseCase(orderRepo repo.OrderRepository, productRepo repo.ProductRep
 }
 
 func (u *OrderUseCase) Create(order *domain.Order) error {
+	if order == nil {
+		return fmt.Errorf("order cannot be nil")
+	}
+
+	// Set initial order status and calculate the total price
 	order.Status = "Pending"
 	var total float64
 
 	for i := range order.Products {
 		product, err := u.productRepo.GetByID(order.Products[i].ProductID)
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to get product: %w", err)
 		}
+
 		order.Products[i].Price = product.Price
 		total += product.Price * float64(order.Products[i].Quantity)
 	}
 
 	order.Total = total
 
+	// Create the main order record
 	if err := u.orderRepo.Create(order); err != nil {
-		return err
+		return fmt.Errorf("failed to create order: %w", err)
 	}
 
-	return u.orderRepo.CreateOrderItems(order.Products)
+	// Set OrderID in each OrderItem before saving
+	for i := range order.Products {
+		order.Products[i].OrderID = order.ID // Assuming order.ID is auto-populated by the DB
+	}
+
+	// Create the order items
+	if err := u.orderRepo.CreateOrderItems(order.Products); err != nil {
+		return fmt.Errorf("failed to create order items: %w", err)
+	}
+
+	return nil
 }
 
 func (u *OrderUseCase) GetUserOrders(userID uint) ([]domain.Order, error) {
