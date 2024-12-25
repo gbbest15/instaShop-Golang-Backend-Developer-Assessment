@@ -28,12 +28,34 @@ func (r *orderRepository) CreateOrderItems(items []domain.OrderItem) error {
 	if len(items) == 0 {
 		return fmt.Errorf("no order items to insert")
 	}
-	for _, item := range items {
-		if item.ProductID == 0 || item.Quantity == 0 {
-			return fmt.Errorf("invalid order item: %+v", item)
+
+	tx := r.db.Begin()
+	defer func() {
+		if err := recover(); err != nil {
+			tx.Rollback()
+			fmt.Println("Panic occurred during order item creation:", err)
+		}
+	}()
+
+	if err := tx.Error; err != nil {
+		return err
+	}
+
+	for i := range items {
+		if items[i].ProductID == 0 || items[i].Quantity == 0 {
+			tx.Rollback()
+			return fmt.Errorf("invalid order item: %+v", items[i])
 		}
 	}
-	return r.db.Create(&items).Error
+
+	fmt.Println("Order items before creation:", items)
+
+	if err := tx.Create(&items).Error; err != nil {
+		tx.Rollback() // Rollback on error
+		return err
+	}
+
+	return tx.Commit().Error
 }
 
 func (r *orderRepository) GetByUserID(userID uint) ([]domain.Order, error) {

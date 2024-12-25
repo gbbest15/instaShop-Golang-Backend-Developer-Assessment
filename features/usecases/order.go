@@ -25,8 +25,8 @@ func (u *OrderUseCase) Create(order *domain.Order) error {
 		return fmt.Errorf("order cannot be nil")
 	}
 
-	// Set initial order status and calculate the total price
 	order.Status = "Pending"
+
 	var total float64
 
 	for i := range order.Products {
@@ -41,14 +41,12 @@ func (u *OrderUseCase) Create(order *domain.Order) error {
 
 	order.Total = total
 
-	// Create the main order record
 	if err := u.orderRepo.Create(order); err != nil {
 		return fmt.Errorf("failed to create order: %w", err)
 	}
 
-	// Set OrderID in each OrderItem before saving
 	for i := range order.Products {
-		order.Products[i].OrderID = order.ID // Assuming order.ID is auto-populated by the DB
+		order.Products[i].OrderID = order.ID
 	}
 
 	// Create the order items
