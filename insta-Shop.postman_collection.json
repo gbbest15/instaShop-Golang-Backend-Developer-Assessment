@@ -1,0 +1,960 @@
+{
+	"info": {
+		"_postman_id": "37030b6c-1fb1-4e4b-85d6-524804fbf62a",
+		"name": "insta-Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27120308",
+		"_collection_link": "https://cloudy-capsule-390298.postman.co/workspace/My-Workspace~225b0fdc-9224-44e7-8d6a-6c22d51c9d0c/collection/27120308-37030b6c-1fb1-4e4b-85d6-524804fbf62a?action=share&source=collection_link&creator=27120308"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spageti\",\n    \"description\":\"This is Dangote Spaggeti, good food start from dangote\",\n    \"price\":400\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "unAuthorized-requested",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Rice\",\n    \"description\":\"This is the good way of good rice, for all kinds of rice\",\n    \"price\":120000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 10:52:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Authorization required\"\n}"
+						},
+						{
+							"name": "Not-Admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTAwMTcsImlzX2FkbWluIjpmYWxzZSwidXNlcl9pZCI6MX0.iIhUS1Rh1SRUk6sNVcYj6npnLCwh1SgtWBt9XH1qaOM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Rice\",\n    \"description\":\"This is the good way of good rice, for all kinds of rice\",\n    \"price\":120000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 10:55:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Admin access required\"\n}"
+						},
+						{
+							"name": "create-product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Rice\",\n    \"description\":\"This is the good way of good rice, for all kinds of rice\",\n    \"price\":120000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 10:56:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "158"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Rice\",\n    \"description\": \"This is the good way of good rice, for all kinds of rice\",\n    \"price\": 120000,\n    \"created_at\": \"2024-12-25T11:56:36.752289+01:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "all product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 11:00:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "317"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Rice\",\n        \"description\": \"This is the good way of good rice, for all kinds of rice\",\n        \"price\": 120000,\n        \"created_at\": \"2024-12-25T11:56:36.752289+01:00\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Spageti\",\n        \"description\": \"This is Dangote Spaggeti, good food start from dangote\",\n        \"price\": 400,\n        \"created_at\": \"2024-12-25T11:58:16.357623+01:00\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spageti\",\n    \"description\":\"This is viater Spaggeti, good food start from dangote\",\n    \"price\":900\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Spageti\",\n    \"description\":\"This is viater Spaggeti, good food start from dangote\",\n    \"price\":900\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 11:05:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Spageti\",\n    \"description\": \"This is viater Spaggeti, good food start from dangote\",\n    \"price\": 900,\n    \"created_at\": \"0001-01-01T00:00:00Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/products/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 11:06:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n         {\n          \"product_id\": 1,\n          \"quantity\": 2\n        }\n    ]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"products\":[\n         {\n          \"product_id\": 1,\n          \"quantity\": 2\n        }\n    ]\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/orders/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 14:53:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 28,\n    \"user_id\": 1,\n    \"status\": \"Pending\",\n    \"products\": [\n        {\n            \"id\": 29,\n            \"order_id\": 28,\n            \"product_id\": 1,\n            \"quantity\": 2,\n            \"price\": 120000\n        }\n    ],\n    \"total\": 240000,\n    \"created_at\": \"2024-12-25T15:53:17.188689+01:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "my order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "my orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/orders/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 14:22:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "369"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 21,\n        \"user_id\": 1,\n        \"status\": \"Pending\",\n        \"products\": [\n            {\n                \"id\": 21,\n                \"order_id\": 21,\n                \"product_id\": 1,\n                \"quantity\": 2,\n                \"price\": 120000\n            }\n        ],\n        \"total\": 240000,\n        \"created_at\": \"2024-12-25T13:24:36.553157+01:00\"\n    },\n    {\n        \"id\": 22,\n        \"user_id\": 1,\n        \"status\": \"Pending\",\n        \"products\": [\n            {\n                \"id\": 22,\n                \"order_id\": 22,\n                \"product_id\": 1,\n                \"quantity\": 2,\n                \"price\": 120000\n            }\n        ],\n        \"total\": 240000,\n        \"created_at\": \"2024-12-25T15:18:14.987635+01:00\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "cancel order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/:id/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								":id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "28"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cancel orders",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/orders/:id/cancel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										":id",
+										"cancel"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "28"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 14:57:58 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order cancelled successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "status order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"Pending\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/:id/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								":id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "28"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "change status",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTA1ODYsImlzX2FkbWluIjp0cnVlLCJ1c2VyX2lkIjoxfQ.apSu8SpyjAxogwBF9G8SUN-WDdqUFsvwKh3RJZ1ZL9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"Pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/orders/:id/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										":id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "28"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Dec 2024 15:02:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order status updated successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"gbenga@gmail.com\",\n    \"password\":\"gbenga123456789\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gbenga@gmail.com\",\n    \"password\":\"gbenga123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Dec 2024 10:42:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User registered successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"gbenga@gmail.com\",\n    \"password\":\"gbenga123456789\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gbenga@gmail.com\",\n    \"password\":\"gbenga123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Dec 2024 10:46:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUyMTAwMTcsImlzX2FkbWluIjpmYWxzZSwidXNlcl9pZCI6MX0.iIhUS1Rh1SRUk6sNVcYj6npnLCwh1SgtWBt9XH1qaOM\"\n}"
+				}
+			]
+		}
+	]
+}
