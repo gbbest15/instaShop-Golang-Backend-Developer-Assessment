@@ -51,7 +51,7 @@ func (r *orderRepository) CreateOrderItems(items []domain.OrderItem) error {
 	fmt.Println("Order items before creation:", items)
 
 	if err := tx.Create(&items).Error; err != nil {
-		tx.Rollback() // Rollback on error
+		tx.Rollback()
 		return err
 	}
 
