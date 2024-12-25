@@ -50,3 +50,7 @@ func main() {
 	}
 	fmt.Println("Successfully connected to the database!")
 }
+
+**Documentation**
+
+For detailed documentation on the project's API endpoints, please refer to the Postman collection file located at `instaShop/insta-Shop.postman_collection.json`. This file contains information on how to interact with the API, including request and response formats.
